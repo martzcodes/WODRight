@@ -1,0 +1,169 @@
+<div ng-cloak>
+    <ion-view view-title="Movement">
+        <ion-tabs tabs-type="tabs-striped">
+            <ion-tab title="Details">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <div class="card">
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length > 0">
+                                    Your {{mvmt.movement.name}} was last updated on {{mvmt.movement.history[mvmt.movement.history.length-1].date | date:'shortDate'}}.
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length === 0">
+                                    You haven't logged anything for {{mvmt.movement.name}}s
+                                </div>
+                            </div>
+                            <div class="card" ng-if="mvmt.movement.history.length >= 1">
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length === 1">
+                                    You've logged {{mvmt.movement.name}}s once.
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length > 1">
+                                    You've logged {{mvmt.movement.name}}s {{mvmt.movement.history.length}} times.
+                                </div>
+                            </div>
+                            <div class="card" ng-if="mvmt.movement.history.length >= 1">
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length >= 3">
+                                    Your last 3 logs recommended 1RMs were {{mvmt.movement.history[mvmt.movement.history.length-1].value | number:1}}, {{mvmt.movement.history[mvmt.movement.history.length-2].value
+                                    | number:1}}, and {{mvmt.movement.history[mvmt.movement.history.length-3].value | number:1}}
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length === 2">
+                                    Your last 2 logs recommended 1RMs were {{mvmt.movement.history[mvmt.movement.history.length-1].value | number:1}} and {{mvmt.movement.history[mvmt.movement.history.length-2].value
+                                    | number:1}}
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.movement.history.length === 1">
+                                    Your last recommended 1RM was {{mvmt.movement.history[mvmt.movement.history.length-1].value | number:1}}
+                                </div>
+                            </div>
+                            <div class="card" ng-if="mvmt.history.length >= 0">
+                                <div class="item item-text-wrap" ng-if="mvmt.history.length >= 3">
+                                    Your last 3 related movements recommended 1RMs of {{mvmt.history[mvmt.history.length-1].value | number:1}}, {{mvmt.movement.history[mvmt.history.length-2].value
+                                    | number:1}}, and {{mvmt.history[mvmt.history.length-3].value | number:1}}
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.history.length === 2">
+                                    Your last 2 related movements recommended 1RMs of {{mvmt.history[mvmt.history.length-1].value | number:1}} and {{mvmt.history[mvmt.history.length-2].value
+                                    | number:1}}
+                                </div>
+                                <div class="item item-text-wrap" ng-if="mvmt.history.length === 1">
+                                    Your last related movement recommended a 1RM of {{mvmt.history[mvmt.history.length-1].value | number:1}}
+                                </div>
+                            </div>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="History">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <div class="card" ng-if="mvmt.movement.history.length > 0">
+                                <div class="item item-text-wrap">
+                                    Below is a log for your {{mvmt.movement.name}}s
+                                </div>
+                            </div>
+                            <div class="card" ng-if="mvmt.movement.history.length === 0">
+                                <div class="item item-text-wrap">
+                                    You haven't logged any one rep maxes or estimates for {{mvmt.movement.name}}s
+                                </div>
+                            </div>
+                            <ion-list ng-if="mvmt.movement.history.length > 0">
+                                <ion-item class="item-padding item" ng-repeat="history in mvmt.movement.history">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span ng-if="history.direct">Direct</span><span ng-if="!history.direct">Estimate</span>
+                                        </div>
+                                        <div class="col">
+                                            {{history.value | number:1}}
+                                        </div>
+                                        <div class="col">
+                                            {{history.date | date:'shortDate'}}
+                                        </div>
+                                        <div class="col">
+                                            {{history.date | date:'shortTime'}}
+                                        </div>
+                                    </div>
+                                </ion-item>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Family">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <div class="card" ng-if="mvmt.movement.history.length > 0">
+                                <div class="item item-text-wrap">
+                                    Below are your 1RM estimates related to {{mvmt.movement.name}}s
+                                </div>
+                            </div>
+                            <div class="card" ng-if="mvmt.history.length === 0">
+                                <div class="item item-text-wrap">
+                                    You don't have any logs related to {{mvmt.movement.name}}s
+                                </div>
+                            </div>
+                            <ion-list>
+                                <ion-item class="item-padding item" ng-repeat="family in mvmt.history">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{family.name}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span ng-if="family.direct">Direct</span><span ng-if="!family.direct">Estimate</span>
+                                        </div>
+                                        <div class="col">
+                                            {{family.value | number:1}}
+                                        </div>
+                                        <div class="col">
+                                            {{family.date | date:'shortDate'}}
+                                        </div>
+                                        <div class="col">
+                                            {{family.date | date:'shortTime'}}
+                                        </div>
+                                    </div>
+                                </ion-item>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Update">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <form ng-submit="mvmt.submitUpdate()">
+                                <div class="list">
+                                    <label class="item item-input">
+                                        <span class="input-label">Weight</span>
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" placeholder="{{mvmt.update.weight}}" ng-model="mvmt.update.weight"
+                                        ng-change="mvmt.calculate()">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Max Reps</span>
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" placeholder="1" ng-model="mvmt.update.reps" ng-change="mvmt.calculate()">
+                                    </label>
+                                    <div class="item item-divider">
+                                        Calculated 1RM
+                                    </div>
+                                    <label class="item item-input">
+                                        <span class="input-label">1RM</span> {{mvmt.update.orm | number:2}} <span class="badge badge-balanced"
+                                        ng-if="mvmt.update.reps === 1">Direct</span><span class="badge badge-calm" ng-if="mvmt.update.reps > 1">Estimate</span>
+                                    </label>
+                                    <div class="item">
+                                        <div class="row" ng-if="mvmt.update.reps === 1">
+                                            <button class="button button-full button-balanced" ng-disabled="mvmt.saveDisable()">Update 1RM</button>
+                                        </div>
+                                        <div class="row" ng-if="mvmt.update.reps > 1">
+                                            <button type="submit" class="button button-full button-calm" ng-disabled="mvmt.saveDisable()">Update 1RM with Estimate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-view>
+</div>

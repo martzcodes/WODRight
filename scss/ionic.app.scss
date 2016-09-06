@@ -1,0 +1,322 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+*/
+
+$light:                           #fff !default;
+//$stable:                          #050505 !default; //changed
+$positive:                        #387ef5 !default;
+$calm:                            #0CC6FE !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ff9900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #333 !default;
+
+$base-background-color:           #fff !default;
+//$base-color:                      #000 !default; //changed
+$scroll-refresh-icon-color:       #666666 !default;
+//$button-color:                    #ddd !default; //changed
+$button-light-text:               #444 !default;
+$button-light-border:             #ddd !default;
+$button-light-active-bg:          #fafafa !default;
+$button-light-active-border:      #ccc !default;
+$button-stable-text:              #444 !default;
+$button-stable-border:            #b2b2b2 !default;
+$button-stable-active-bg:         #e5e5e5 !default;
+$button-stable-active-border:     #a2a2a2 !default;
+$button-dark-text:                #fff !default;
+$button-dark-border:              #111 !default;
+$button-dark-active-bg:           #262626 !default;
+$button-dark-active-border:       #000 !default;
+$tabs-striped-off-color:          #000 !default;
+$item-icon-accessory-color:       #ccc !default;
+$item-divider-bg:                 #f5f5f5 !default;
+$item-divider-color:              #222 !default;
+$item-default-active-bg:          #D9D9D9 !default;
+$list-header-color:               #222 !default;
+$card-header-bg:                  #F5F5F5 !default;
+$card-body-bg:                    #fff !default;
+$card-footer-bg:                  #F5F5F5 !default;
+$card-border-color:               #ccc !default;
+$card-box-shadow:                 0 1px 3px rgba(0, 0, 0, .3) !default;
+$input-color:                     #111 !default;
+$toggle-off-bg-color:             #fff !default;
+$toggle-off-border-color:         #e6e6e6 !default;
+$checkbox-off-bg-color:           #fff !default;
+$checkbox-check-color:            #fff !default;
+$range-slider-box-shadow:         0 0 2px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,0.2) !default;
+$range-default-track-bg:          #ccc !default;
+//$menu-bg:                         #000 !default; //changed
+$menu-side-shadow:                -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0,0,0,0.2) !default;
+$modal-bg-color:                  #fff !default;
+$modal-backdrop-bg-active:        #000 !default;
+$modal-backdrop-bg-inactive:      rgba(0,0,0,0) !default;
+$popover-backdrop-bg-active:      rgba(0,0,0,0.1) !default;
+$popover-backdrop-bg-inactive:    rgba(0,0,0,0) !default;
+$popover-box-shadow:              0 1px 3px rgba(0,0,0,0.4) !default;
+$popover-box-shadow-ios:          0 0 40px rgba(0,0,0,0.08) !default;
+$popover-bg-color-android:        #fafafa !default;
+$popover-box-shadow-android:      0 2px 6px rgba(0,0,0,0.35) !default;
+$sheet-options-bg-color:          #f1f2f3 !default;
+$sheet-options-bg-active-color:   #e4e5e7 !default;
+$sheet-options-text-color:        #007aff !default;
+$sheet-options-border-color:      #d1d3d6 !default;
+$popup-background-color:          rgba(255,255,255,0.9) !default;
+$loading-text-color:              #fff !default;
+$loading-bg-color:                rgba(0,0,0,0.7) !default;
+$loading-backdrop-bg-color:       rgba(0,0,0,0.4) !default;
+$badge-default-text:              #AAAAAA !default;
+
+
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+// Include font-awesome
+$fa-font-path:  "../lib/font-awesome/fonts";
+@import "www/lib/font-awesome/scss/font-awesome";
+
+.mod-type {
+//  color: $light;
+}
+
+.text-light {
+  color: $light;
+}
+
+.movement-name {
+//  color: $light;
+  font-size: 30px !important;
+}
+
+.update-date {
+//  color: $light;
+}
+
+.direct {
+//  color: $light;
+}
+
+.estimate {
+  color: $calm;
+}
+
+.scroll-content{
+  background-color:$stable;
+}
+
+.disclaimer {
+  //background-color: $dark;
+  //color: $light;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.indirect {
+  color: $energized;
+}
+
+.mod-box {
+  width: 100%;
+  height: 100%;
+}
+
+.mod-button {
+  width: 100%;
+  padding: 0;
+  height: 50px;
+  font-size: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.action-sheet-wrapper {
+  top: 10%;
+  bottom: 10%;
+  overflow: scroll;
+}
+
+.rec {
+  font-size: 40px !important;
+  position: relative;
+  top: 25%;
+  width:100%;
+}
+
+.rec-section {
+  height: 50px;
+  width: 100%;
+}
+
+.item-padding {
+  padding: 0 !important;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.update-text {
+  font-size: 25px;
+  margin: 10px;
+}
+
+.analysis {
+  width: 100%;
+  white-space: normal;
+}
+
+.row {
+  padding: 0 !important;
+}
+
+.platform-android .action-sheet-cancel {
+    display: block !important;
+}
+
+.platform-android .action-sheet {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.platform-android .action-sheet-group {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.bottom-fixed {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  border-radius: 0;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+label.item.has-error {  
+  border-bottom: 4px solid red;
+  border-left: 4px solid red;
+}
+
+.history-strength {  
+  border-left: 4px solid $positive;
+}
+
+.history-wod {  
+  border-left: 4px solid $calm;
+}
+
+.history-estimate {  
+  border-left: 4px solid $calm;
+}
+
+.history-indirect {  
+  border-left: 4px solid $energized;
+}
+
+label.item.valid-lr {  
+  border-left: 4px solid green;
+  border-bottom: 4px solid green;
+}
+
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+.footer-wod, .footer-strength, .footer-conditioning {
+  color: $light !important;
+  margin-top: 0px !important;
+  border-width: 0px !important;
+}
+
+.footer-wod {
+  background-color: $calm !important;
+}
+
+.footer-strength {
+  background-color: $positive !important;
+}
+
+.footer-conditioning {
+  background-color: $royal !important;
+}
+
+.menu-bottom {
+  z-index: 1000;
+  position: fixed;
+  bottom: -500px;
+  width: 100%;
+}
+
+.rec-badge {
+  @include badge-style($badge-default-bg, $badge-default-text);
+  z-index: $z-index-badge;
+  display: inline-block;
+  padding: 3px 8px;
+  min-width: 10px;
+  border-radius: $badge-border-radius;
+  vertical-align: baseline;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: $badge-font-weight;
+  font-size: $badge-font-size;
+  line-height: $badge-line-height;
+
+  &:empty {
+    display: none;
+  }
+}
+
+//Be sure to override specificity of rule that 'badge color matches tab color by default'
+.tabs .tab-item .rec-badge,
+.rec-badge {
+  &.rec-badge-light {
+    @include badge-style($badge-light-bg, $badge-light-text);
+  }
+  &.rec-badge-stable {
+    @include badge-style($badge-stable-bg, $badge-stable-text);
+  }
+  &.rec-badge-positive {
+    @include badge-style($badge-positive-bg, $badge-positive-text);
+  }
+  &.rec-badge-calm {
+    @include badge-style($badge-calm-bg, $badge-calm-text);
+  }
+  &.rec-badge-assertive {
+    @include badge-style($badge-assertive-bg, $badge-assertive-text);
+  }
+  &.rec-badge-balanced {
+    @include badge-style($badge-balanced-bg, $badge-balanced-text);
+  }
+  &.rec-badge-energized {
+    @include badge-style($badge-energized-bg, $badge-energized-text);
+  }
+  &.rec-badge-royal {
+    @include badge-style($badge-royal-bg, $badge-royal-text);
+  }
+  &.rec-badge-dark {
+    @include badge-style($badge-dark-bg, $badge-dark-text);
+  }
+}
+
+// Quick fix for labels/badges in buttons
+.button .rec-badge {
+  position: relative;
+  top: -1px;
+}

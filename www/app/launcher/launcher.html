@@ -1,0 +1,43 @@
+<div ng-cloak>
+    <ion-view view-title="WODRight">
+        <ion-content class="has-footer">
+            <ion-list>
+                <ion-item class="card item-assertive item-text-wrap" ng-if="wr.noHistoryCount > 0">
+                    <h1 class="text-center text-light">Missing 1RMs: {{wr.noHistoryCount}}</h1>
+                </ion-item>
+                <ion-item class="card item-energized item-text-wrap" ng-if="wr.histories.length > 1">
+                    <h2 class="text-light"><b>Oldest 1RM: {{wr.histories[wr.histories.length-1].name}} @ {{wr.histories[wr.histories.length-1].value | number:1}}</b></h2>
+                    <p>from {{wr.histories[wr.histories.length-1].date | date:'medium'}}</p>
+                </ion-item>
+                <div class="item item-divider">
+                    Recent Activity
+                </div>
+                <ion-item class="item item-text-wrap " ng-if="wr.histories.length > 0" ng-repeat="history in wr.histories track by $index"
+                ng-class="{'history-strength':history.type === 'strength', 'history-wod':history.type === 'wod'}">
+                    <h2><b>{{history.name}} @ {{history.value | number:1}}</b></h2>
+                    <p>from {{history.date | date:'medium'}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+        <ion-tabs tabs-type="tabs-striped">
+            <ion-tab title="WOD" class="active footer-wod" ng-click="wr.navGo('wods')"></ion-tab>
+            <ion-tab title="Maxes" class="active footer-conditioning" ng-click="wr.navGo('maxes')"></ion-tab>
+            <ion-tab title="Quick Lift" class="active footer-strength" ng-click="wr.navGo('strength')"></ion-tab>
+        </ion-tabs>
+        <!--<ion-footer-bar>
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <button class="pull-left button button-block button-calm no-margin no-padding" ng-click="wr.navGo('wods')">WOD</button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-block button-positive no-margin no-padding" ng-click="wr.navGo('strength')">Strength</button>
+                    </div>
+                    <div class="col">
+                        <button class="pull-right button button-block no-margin no-padding button-royal" ng-click="wr.navGo('conditioning')">Conditioning</button>
+                    </div>
+                </div>
+            </div>
+        </ion-footer-bar>-->
+    </ion-view>
+</div>

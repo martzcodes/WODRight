@@ -1,0 +1,188 @@
+<div ng-cloak>
+    <ion-view view-title="WOD Details">
+        <ion-nav-bar class="bar-calm">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <!--<ion-nav-buttons side="right">
+                <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>-->
+        </ion-nav-bar>
+        <ion-tabs tabs-type="tabs-striped">
+            <ion-tab title="Details" class="footer-wod">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <div class="list">
+                                <label class="item item-input">
+                                    <span class="input-label">Name</span> {{wd.wod.name}}
+                                </label>
+                                <div class="item item-divider">
+                                    Movements
+                                </div>
+                                <div ng-repeat="movement in wd.wod.movements" class="item">
+                                    <div class="row">
+                                        <div class="col col-50">{{movement.name}}</div>
+                                        <div class="col text-center">{{movement.active.mod.name}} reps</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-center" ng-if="movement.rx > 0">
+                                            Rx: <span ng-class="{'rec-badge':movement.rx < movement.active.low, 'rec-badge-balanced':movement.rx < movement.active.low && movement.active.source==='direct', 'rec-badge-energized':movement.rx < movement.active.low && movement.active.source==='indirect', 'rec-badge-calm':movement.rx < movement.active.low && movement.active.source==='estimate'}">{{movement.rx | number:1}}</span>
+                                        </div>
+                                        <div class="col text-center" ng-if="movement.rx <= 0 || !movement.rx">
+                                            No Rx
+                                        </div>
+                                        <div class="col text-center" ng-if="movement.active.source !== 'none'">
+                                            Rec: <span ng-class="{'rec-badge':movement.rx >= movement.active.low, 'rec-badge-balanced':movement.rx >= movement.active.low && movement.active.source==='direct', 'rec-badge-energized':movement.rx >= movement.active.low && movement.active.source==='indirect', 'rec-badge-calm':movement.rx >= movement.active.low && movement.active.source==='estimate'}">{{movement.active.low | number:1}} - {{movement.active.high | number:1}}</span>
+                                        </div>
+                                        <div class="col text-center" ng-if="movement.active.source === 'none'">
+                                            Rec: No Data
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item item-divider">
+                                    Status
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col text-center" ng-if="wd.wod.history.length === 0">
+                                            Never Logged
+                                        </div>
+                                        <div class="col text-center" ng-if="wd.wod.history.length >= 1">
+                                            Last Completed: {{wd.wod.history[0].date | date:'medium'}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <ion-item class="item-padding item">
+                                    <div class="row">
+                                        <button class="button button-assertive col item-padding button-full update-text" ng-click="wd.deleteWOD()">Delete WOD</button>
+                                    </div>
+                                </ion-item>
+                            </div>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Log" class="footer-wod">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <form ng-submit="wd.addLogged()">
+                                <div class="list">
+                                    <label class="item item-input">
+                                        <span class="input-label">WOD Name</span> {{wd.wod.name}}
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Date</span>
+                                        <input type="date" placeholder="" ng-model="wd.newLog.date">
+                                    </label>
+                                    <li class="item item-toggle">
+                                        Timed
+                                        <label class="toggle toggle-calm">
+                                            <input type="checkbox" ng-model="wd.newLog.timed.enabled">
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <label class="item item-input">
+                                        <span class="input-label">Time Finished</span>
+                                        <input type="time" step="1" ng-model="wd.newLog.finish">
+                                    </label>
+                                    <label class="item item-input" ng-if="wd.newLog.timed.enabled">
+                                        <span class="input-label">Minutes</span>
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" ng-model="wd.newLog.timed.minutes">
+                                    </label>
+                                    <label class="item item-input" ng-if="wd.newLog.timed.enabled">
+                                        <span class="input-label">Seconds</span>
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" ng-model="wd.newLog.timed.seconds">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Notes</span>
+                                        <textarea placeholder="Notes" ng-model="wd.newLog.notes"></textarea>
+                                    </label>
+                                    <div ng-repeat="movement in wd.newLog.movements">
+                                        <div class="item item-divider">
+                                            {{movement.name}}
+                                        </div>
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col text-center">Target: {{movement.target}} reps</div>
+                                            </div>
+                                        </div>
+                                        <label class="item item-input">
+                                            <span class="input-label">Completed Reps</span>
+                                            <input type="number" pattern="[0-9]*" inputmode="numeric" ng-model="movement.reps">
+                                        </label>
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col text-center" ng-if="movement.rx > 0">
+                                                    Rx: <span ng-class="{'rec-badge':movement.rx < movement.active.low, 'rec-badge-balanced':movement.rx < movement.rec.low && movement.rec.source==='direct', 'rec-badge-energized':movement.rx < movement.rec.low && movement.rec.source==='indirect', 'rec-badge-calm':movement.rx < movement.rec.low && movement.rec.source==='estimate'}">{{movement.rx | number:1}}</span>
+                                                </div>
+                                                <div class="col text-center" ng-if="movement.rx <= 0 || !movement.rx">
+                                                    No Rx
+                                                </div>
+                                                <div class="col text-center" ng-if="movement.rec.source !== 'none'">
+                                                    Rec: <span ng-class="{'rec-badge':movement.rx >= rec.active.low, 'rec-badge-balanced':movement.rx >= movement.rec.low && movement.rec.source==='direct', 'rec-badge-energized':movement.rx >= movement.rec.low && movement.rec.source==='indirect', 'rec-badge-calm':movement.rx >= movement.rec.low && movement.rec.source==='estimate'}">{{movement.rec.low | number:1}} - {{movement.rec.high | number:1}}</span>
+                                                </div>
+                                                <div class="col text-center" ng-if="movement.rec.source === 'none'">
+                                                    Rec: No Data
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label class="item item-input">
+                                            <span class="input-label">Weight Used</span>
+                                            <input type="number" pattern="[0-9]*" inputmode="numeric" ng-model="movement.weight">
+                                        </label>
+                                    </div>
+                                    <ion-item class="item-padding item">
+                                        <div class="row">
+                                            <button type="submit" class="button button-balanced col item-padding button-full update-text">Log it</button>
+                                        </div>
+                                    </ion-item>
+                                </div>
+                            </form>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="History" class="footer-wod">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <div class="card">
+                                <div class="item item-calm item-text-wrap">
+                                    Coming Soon...
+                                </div>
+                            </div>
+                            <div class="card" ng-if="wd.wod.history.length > 0">
+                                <div class="item item-text-wrap">
+                                    Below is a log for your {{wd.wod.name}}s
+                                </div>
+                            </div>
+                            <div class="card" ng-if="wd.wod.history.length === 0">
+                                <div class="item item-assertive item-text-wrap">
+                                    You haven't logged any workouts for {{wd.wod.name}}s
+                                </div>
+                            </div>
+                            <ion-list ng-if="wd.wod.history.length > 0">
+                                <ion-item class="item-padding item" ng-repeat="history in wd.wod.history">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{history.date | date:'shortDate'}}
+                                        </div>
+                                        <div class="col">
+                                            {{history.date | date:'shortTime'}}
+                                        </div>
+                                    </div>
+                                </ion-item>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-view>
+</div>

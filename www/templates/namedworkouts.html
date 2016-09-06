@@ -1,0 +1,20 @@
+<div ng-cloak>
+    <ion-view view-title="Named Workouts">
+        <ion-content>
+            <ion-list>
+                <ion-item class="item-padding item-dark" ng-repeat="girl in nw.girls track by $index">
+                    <div class="row">
+                    	<div class="col">
+                    		<h1 class="movement-name">{{girl.name}}</h1>
+                		</div>
+            		</div>
+                    <div class="row">
+                    	<div class="col">
+                    		<pre>{{girl | json}}</pre>
+                    	</div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-view>
+</div>

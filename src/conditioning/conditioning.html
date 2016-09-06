@@ -1,0 +1,86 @@
+<div ng-cloak>
+    <ion-view view-title="Conditioning">
+        <ion-nav-bar class="bar-royal">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+            <!--<ion-nav-buttons side="right">
+                <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>-->
+        </ion-nav-bar>
+        <ion-tabs tabs-type="tabs-striped">
+            <!--<ion-tab title="All">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true">
+                            <ion-list>
+                                <div ng-repeat="movement in con.mL | filter:{'family':''}">
+                                    <wr-movement-item save-changes="true" item="con.m[movement.id]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                                </div>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>-->
+            <ion-tab title="Squat" class="footer-conditioning">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true" padding="true">
+                            <ion-list>
+                                <div ng-repeat="movement in con.mL | filter:{'family':'Squats'}">
+                                    <wr-movement-item save-changes="true" item="con.m[movement.id]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                                </div>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Press" class="footer-conditioning">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true" padding="true">
+                            <ion-list>
+                                <div ng-repeat="movement in con.mL | filter:{'family':'Presses'}">
+                                    <wr-movement-item save-changes="true" item="con.m[movement.id]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                                </div>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Pull" class="footer-conditioning">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true" padding="true">
+                            <ion-list>
+                                <div ng-repeat="movement in con.mL | filter:{'family':'Pulls'}">
+                                    <wr-movement-item save-changes="true" item="con.m[movement.id]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                                </div>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Misc" class="footer-conditioning">
+                <ion-nav-view>
+                    <ion-view>
+                        <ion-content has-header="true" padding="true">
+                            <ion-list>
+                                <div ng-repeat="movement in con.mL | filter:{'family':'Misc'}">
+                                    <wr-movement-item save-changes="true" item="con.m[movement.id]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                                </div>
+                            </ion-list>
+                        </ion-content>
+                    </ion-view>
+                </ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+        <!--<ion-content>
+            <ion-list>
+                <div ng-repeat="movementId in con.mL track by $index">
+                    <wr-movement-item save-changes="true" item="con.m[movementId]" movement-refresh="con.movementRefresh()" mode="conditioning"></wr-movement-item>
+                </div>
+            </ion-list>
+        </ion-content>-->
+    </ion-view>
+</div>

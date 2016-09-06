@@ -1,0 +1,15 @@
+{
+  "name": "WODRight",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "html",
+    "compile",
+    "watch"
+  ],
+  "disablePushNotifications": true,
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
