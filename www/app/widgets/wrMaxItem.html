@@ -1,0 +1,28 @@
+<ion-item class="item item-padding" ng-class="{'history-direct':mi.itemClass==='direct','history-estimate':mi.itemClass==='estimate','history-indirect':mi.itemClass==='indirect'}">
+    <div class="row">
+        <div class="col text-center" ng-click="mi.openOptionSheet()">
+            <h1 class="movement-name">{{mi.item.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-50" ng-click="mi.openOptionSheet()">
+            <div class="row text-center rec-section">
+                <span ng-class="mi.itemClass" class="rec">{{mi.active.high | number:1}}</span>
+            </div>
+        </div>
+        <div class="col col-50 mod-box">
+            <button class="button button-calm text-center mod-button" ng-click="mi.updateMovement()">Update
+            </button>
+        </div>
+    </div>
+    <div class="row" ng-if="!mi.updateButton">
+        <div class="col" ng-click="mi.openOptionSheet()">
+            <div class="row" ng-click="mi.openOptionSheet()" ng-if="!mi.updateButton">
+                <h3 ng-if="mi.itemClass==='direct'" ng-class="mi.itemClass">Last updated on {{mi.itemDate | date}}</h3>
+                <h3 ng-if="mi.itemClass==='estimate'" ng-class="mi.itemClass">Estimated from reps on {{mi.itemDate | date}}</h3>
+                <h3 ng-if="mi.itemClass==='indirect'" ng-class="mi.itemClass">Estimated from {{mi.footer}} on {{mi.itemDate | date}}</h3>
+            </div>
+        </div>
+    </div>
+    <!--<pre>{{mi.item | json}}</pre>-->
+</ion-item>

@@ -26,23 +26,6 @@
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-
-            if (AdMob) {
-                var admob_key = device.platform == "Android" ? "ca-app-pub-6778064968647340/3963516510" : "ca-app-pub-6778064968647340/3823915719";
-                AdMob.createBanner({
-                    adId: admob_key,
-                    position: AdMob.AD_POSITION.BOTTOM_CENTER,
-                    isTesting: false,
-                    autoShow: true,
-                    success: function() {
-                        console.log("success");
-                    },
-                    error: function() {
-                        console.log("error");
-                    }
-                });
-            }
-
         });
     }
 
