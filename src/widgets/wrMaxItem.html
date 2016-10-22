@@ -4,14 +4,20 @@
             <h1 class="movement-name">{{mi.item.name}}</h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-if="mi.active.high">
         <div class="col col-50" ng-click="mi.openOptionSheet()">
-            <div class="row text-center rec-section">
+            <div class="row text-center rec-section" >
                 <span ng-class="mi.itemClass" class="rec">{{mi.active.high | number:1}}</span>
             </div>
         </div>
         <div class="col col-50 mod-box">
             <button class="button button-calm text-center mod-button" ng-click="mi.updateMovement()">Update
+            </button>
+        </div>
+    </div>
+    <div class="row" ng-if="!mi.active.high">
+        <div class="col mod-box">
+            <button class="button button-calm text-center mod-button" ng-click="mi.updateMovement()">Set 1RM
             </button>
         </div>
     </div>
@@ -24,5 +30,4 @@
             </div>
         </div>
     </div>
-    <!--<pre>{{mi.item | json}}</pre>-->
 </ion-item>
