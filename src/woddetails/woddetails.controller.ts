@@ -73,7 +73,6 @@
         }
 
         function processWOD() {
-            console.log(vm.wod);
             var movementPromises = [];
             function processMovement(mId) {
                 return $q(function(resolve, reject) {

@@ -276,7 +276,7 @@
                 var storedMovement = $localstorage.getObject(movementId, {});
                 return $q(function(resolve, reject) {
                     //check for existing information (stored in individual objects)
-                    if (storedMovement.length !== 0) {
+                    if (Object.keys(storedMovement).length > 2) {
                         //if existing, store in user object
                         var movement = angular.copy(WODconstants.movements[movementId], movement);
                         movement.modType = storedMovement.modType;
@@ -328,7 +328,7 @@
                     reps: WODconstants.repOptions[0],
                     effort: WODconstants.effortOptions[0]
                 };
-                movement.conditioning = WODconstants.overallRepOptions[0];
+                movement.conditioning = WODconstants.effortOptions[0];
                 movement.history = [];
                 resolve(movement);
             });
