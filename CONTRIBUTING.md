@@ -2,6 +2,8 @@
 
 This guide details how to use issues and pull requests to improve WODRight
 
+See: [GitHub's Guide to Contributing to Open Source](https://guides.github.com/activities/contributing-to-open-source/)
+
 Please stick as close as possible to the guidelines. That way we ensure quality guides
 and easy to merge requests.
 
@@ -29,3 +31,11 @@ For example some good titles would be:
 
 * [Feature] New calculator for water intake per #1
 * [Bug Fix] Missing several exclamation points !! per #2
+
+## How to Submit Code
+
+* Create an Issue in the main WODRight project
+* [Fork the repository](https://help.github.com/articles/fork-a-repo/)
+* Make your changes
+* [Submit a pull request](https://help.github.com/articles/about-pull-requests/)
+* Be patient!
