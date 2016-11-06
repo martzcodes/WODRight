@@ -1,6 +1,6 @@
 # Contribute to WODRight
 
-This guide details how to use issues and pull requests to improve WODRight.
+This guide details how to use issues and pull requests to improve WODRight
 
 Please stick as close as possible to the guidelines. That way we ensure quality guides
 and easy to merge requests.
