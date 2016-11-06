@@ -779,6 +779,69 @@
                 lower: 100,
                 upper: 100000
             }],
+            overallRepOptions: [{
+                name: '1',
+                value: 1.0
+            }, {
+                name: '2',
+                value: 0.94
+            }, {
+                name: '3',
+                value: 0.91
+            }, {
+                name: '4',
+                value: 0.88
+            }, {
+                name: '5',
+                value: 0.86
+            }, {
+                name: '6',
+                value: 0.83
+            }, {
+                name: '7',
+                value: 0.82
+            }, {
+                name: '8',
+                value: 0.78
+            }, {
+                name: '9',
+                value: 0.77
+            }, {
+                name: '10-19',
+                value: 0.75,
+                lower: 10,
+                upper: 19
+            }, {
+                name: '20-29',
+                value: 0.7,
+                lower: 20,
+                upper: 29
+            }, {
+                name: '30-39',
+                value: 0.6,
+                lower: 30,
+                upper: 39
+            }, {
+                name: '40-49',
+                value: 0.5,
+                lower: 40,
+                upper: 49
+            }, {
+                name: '50-59',
+                value: 0.45,
+                lower: 50,
+                upper: 59
+            }, {
+                name: '60-99',
+                value: 0.4,
+                lower: 60,
+                upper: 99
+            }, {
+                name: '100+',
+                value: 0.3,
+                lower: 100,
+                upper: 100000
+            }],
             effortOptions: [{
                 name: '100%',
                 value: 1

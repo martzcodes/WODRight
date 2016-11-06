@@ -95,7 +95,7 @@
                                 </ion-list>
                                 <div class="row" ng-if="nw.wod.movements.length > 0">
                                     <button class="button button-assertive col item-padding button-full update-text" ng-click="nw.clearWOD()">Clear</button>
-                                    <button type="submit" class="button button-calm col col-67 item-padding button-full update-text" ng-if="nw.wod.unique">Save</button>
+                                    <button type="submit" class="button button-calm col col-67 item-padding button-full update-text" ng-if="nw.wod.unique" ng-click="nw.saveWOD()">Save</button>
                                     <button class="button button-balanced col col-67 item-padding button-full update-text" ng-if="!nw.wod.unique" ng-click="nw.goToWOD()">Go to WOD</button>
                                 </div>
                             </form>
